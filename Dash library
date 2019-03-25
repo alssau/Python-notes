@@ -7,3 +7,7 @@ sudo kill -9 <process_id> #to actually stop the process running on the port
 
 
 # Stop the server.
+
+Use control + c to stop it.
+
+
