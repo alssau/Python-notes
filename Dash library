@@ -1,0 +1,6 @@
+Crashing consequences.
+
+Can get error 98 if the script returns error and the local server doesnt shut down properly. You can use:
+
+sudo lsof -i :5000 #to detect the process listening on the port, and then
+sudo kill -9 <process_id> #to actually stop the process running on the port
