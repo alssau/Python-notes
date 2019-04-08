@@ -20,3 +20,34 @@ WHERE pg_stat_activity.datname = 'TARGET_DB' -- ← change this to your DB
 # Manipulation of postgresql from python
 
 https://pynative.com/python-postgresql-tutorial/
+
+# Datatable object with dropdowns
+
+dash_table.DataTable
+  (
+    id='table_colleagues',
+    columns=[
+            {'id': 'full_name', 'name': 'Full name'},
+            {'id': 'mck_role', 'name': 'Role', 'presentation': 'dropdown'},
+            ],    
+    data=dfcolleagues.to_dict("rows"),
+    n_fixed_rows = 1,
+    style_table={
+                'maxHeight': '400',
+                'overflowY': 'scroll'
+                },
+    style_cell = {
+                 'maxWidth': '90px',
+                 'whiteSpace': 'normal'
+                 },
+    editable = True,
+    row_deletable = True,
+    column_static_dropdown = [
+                            {
+                            'id': 'mck_role',
+                            'dropdown': [{'label': i, 'value': i} for i in dfroles['mck_role']]
+                            }
+                            ]
+                    )
+    , style={'margin':'0 auto 10 auto'}
+  )
